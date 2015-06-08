@@ -22,8 +22,8 @@ router.post(
 	'/login', 
 	passport.authenticate( 'local', { successRedirect: '/mypage', failureRedirect: '/', failureFlash: true }), 
 	function(req, res, next) {
-		//認証成功した場合はマイページにリダイレクト
-		res.redirect('/mypage');
+		//認証成功した場合のコールバック
+		//成功時のリダイレクトは successRedirect で指定しているので、ここですることは特にないかもしれない。
 	}
 );
 
