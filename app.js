@@ -20,7 +20,7 @@ app.use(flash());
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 app.use(require('express-session')({
-    secret: 'fjaiofjfiafkldsfkadjkafk',
+    secret: 'fjaiofjfiafkldsfkadjkafk', //セッションのハッシュ文字列。任意に変更すること。
     resave: false,
     saveUninitialized: false
 }));
