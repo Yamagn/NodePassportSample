@@ -18,9 +18,11 @@ router.get('/', function(req, res, next) {
 
 
 //ログイン処理
+//badRequestMessage は入力値が空の場合にflashにセットされるメッセージ。
+//つまり、入力値が空かどうかはpassport側でチェックしてくれているので、それ用のバリデーションは不要。
 router.post(
 	'/login', 
-	passport.authenticate( 'local', { successRedirect: '/mypage', failureRedirect: '/', failureFlash: true }), 
+	passport.authenticate( 'local', { successRedirect: '/mypage', failureRedirect: '/', failureFlash: true, badRequestMessage: '入力値が空です' }), 
 	function(req, res, next) {
 		//認証成功した場合のコールバック
 		//成功時のリダイレクトは successRedirect で指定しているので、ここですることは特にないかもしれない。
